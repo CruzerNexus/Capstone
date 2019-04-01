@@ -1,0 +1,10 @@
+{% extends 'ddfleetapp/base.html' %}
+
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>Remove {{ object.card.name }} from your list?</p><img src='{{ object.card.card_img.url }}'/><br> {{ form.as_p }}
+        <input type="submit" value="Delete"></input>
+    </form>
+    <a href="{% url 'dd_detail' object.fleet.id %}"><button type="reset">Back</button></a>
+{% endblock content %}

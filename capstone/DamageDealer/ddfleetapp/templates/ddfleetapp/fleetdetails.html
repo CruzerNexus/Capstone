@@ -1,0 +1,37 @@
+{% extends 'ddfleetapp/base.html' %}
+
+{% block content %}
+    <h2>{{ fleet.list_name }}</h2>
+    <h3>Commanding Officer: {{ fleet.admiral_name }}</h3>
+    <h5>Fleet points: {{ fleet.get_point_total }}</h5>
+    <h5>Fleet "Damage-Dealer" Rating: {{ fleet.get_dd_total }} average damage per turn.</h5>
+    <h3>Fleet Roster <br></h3>
+    <h5>Ships:</h5>
+    {% for c in card_ship %}
+        <a href="{% url 'dd_cardnum' c.pk %}"><img src="{{ c.card.card_img.url }}"/></a><p>Card Amount: {{ c.amount }}</p>
+        <a href="{% url 'dd_cardnum' c.pk %}"><button type="button">Edit Amount</button></a><a href="{% url 'dd_carddel' c.pk %}"><button>Delete Card</button></a><br>
+        *****<br>
+    {% endfor %}
+    <h5>Squadrons:</h5>
+    {% for c in card_squadron %}
+        <a href="{% url 'dd_cardnum' c.pk %}"><img src="{{ c.card.card_img.url }}"/></a><p>Card Amount: {{ c.amount }}</p>
+        <a href="{% url 'dd_cardnum' c.pk %}"><button type="button">Edit Amount</button></a><a href="{% url 'dd_carddel' c.pk %}"><button>Delete Card</button></a><br>
+        *****<br>
+    {% endfor %}
+    <h5>Upgrades:</h5>
+    {% for c in card_upgrade %}
+        <a href="{% url 'dd_cardnum' c.pk %}"><img src="{{ c.card.card_img.url }}"/></a><p>Card Amount: {{ c.amount }}</p>
+        <a href="{% url 'dd_cardnum' c.pk %}"><button type="button">Edit Amount</button></a><a href="{% url 'dd_carddel' c.pk %}"><button>Delete Card</button></a><br>
+        *****<br>
+    {% endfor %}
+    <h5>Objective:</h5>
+    {% for c in card_objective %}
+        <a href="{% url 'dd_cardnum' c.pk %}"><img src="{{ c.card.card_img.url }}"/></a><p>Card Amount: {{ c.amount }}</p>
+        <a href="{% url 'dd_cardnum' c.pk %}"><button type="button">Edit Amount</button></a><a href="{% url 'dd_carddel' c.pk %}"><button>Delete Card</button></a><br>
+        *****<br>
+    {% endfor %}<br>
+    <a class='add' href="{% url 'dd_add' fleet.pk %}"><button type="button">Add Cards</button></a>
+    <a class='edit' href="{% url 'dd_edit' fleet.pk %}"><button type="button">Edit Names</button></a>
+    <a class='delete' href="{% url 'dd_delete' fleet.pk %}"><button type="button">Delete</button></a>
+    <a class='print' href="{% url 'dd_print' fleet.pk %}"><button type="button">Print View</button></a>
+{% endblock content %}

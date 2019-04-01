@@ -1,0 +1,10 @@
+{% extends 'ddfleetapp/base.html' %}
+
+{% block content %}
+    {% for x in object_list %}
+    <div class="list-of-fleets">
+        <h3><a href="{% url 'dd_detail' x.pk %}">{{ x.list_name }}</a></h3>
+        <p>Commanded by: {{ x.admiral_name }}</p>
+    </div>
+    {% endfor %}
+{% endblock content %}

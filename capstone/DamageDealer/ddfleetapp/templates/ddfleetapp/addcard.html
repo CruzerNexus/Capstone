@@ -1,0 +1,120 @@
+{% extends 'ddfleetapp/base.html' %}
+
+{% block content %}
+    <div id="cardbuttons">
+        <h2>Add Cards</h2>
+        <button type='button' onclick='showHideShips()'>Add Ships</button><br>
+        <div id='shipslist'>
+            {% for ship in shipslist %}
+                <div class="card" id="{{ ship.pk }}"><img src="{{ ship.card_img.url }}"/></div>
+            {% endfor %}
+        </div>
+        <button type='button' onclick='showHideUpgrades()'>Add Upgrades</button><br>
+        <div id='upgrdlist'>
+            <button type='button' onclick='showHideCommander()'> Commander Upgrades</button><br>
+            <div id='commanderlist'>
+                {% for upgrade in commanderlist %}
+                    <div class="card" id="{{ upgrade.pk }}"><img src="{{ upgrade.card_img.url }}"/></div>
+                {% endfor %}
+            </div>
+            <button type='button' onclick='showHideDefense()'>Def-Retrofit Upgrades</button><br>
+            <div id='defenselist'>
+                {% for upgrade in defenselist %}
+                    <div class="card" id="{{ upgrade.pk }}"><img src="{{ upgrade.card_img.url }}"/></div>
+                {% endfor %}
+            </div>
+            <button type='button' onclick='showHideExperimental()'>Exp-Retrofit Upgrades</button><br>
+            <div id='experimentlist'>
+                {% for upgrade in experimentlist %}
+                    <div class="card" id="{{ upgrade.pk }}"><img src="{{ upgrade.card_img.url }}"/></div>
+                {% endfor %}
+            </div>
+            <button type='button' onclick='showHideFleetComm()'>Fleet Command Upgrades</button><br>
+            <div id='fleetcommlist'>
+                {% for upgrade in fleetcommlist %}
+                    <div class="card" id="{{ upgrade.pk }}"><img src="{{ upgrade.card_img.url }}"/></div>
+                {% endfor %}
+            </div>
+            <button type='button' onclick='showHideFleetSupp()'>Fleet Support Upgrades</button><br>
+            <div id='fleetsupplist'>
+                {% for upgrade in fleetsupplist %}
+                    <div class="card" id="{{ upgrade.pk }}"><img src="{{ upgrade.card_img.url }}"/></div>
+                {% endfor %}
+            </div>
+            <button type='button' onclick='showHideIon()'>Ion Cannon Upgrades</button><br>
+            <div id='ionlist'>
+                {% for upgrade in ionlist %}
+                    <div class="card" id="{{ upgrade.pk }}"><img src="{{ upgrade.card_img.url }}"/></div>
+                {% endfor %}
+            </div>
+            <button type='button' onclick='showHideOffense()'>Off-Retrofit Upgrades</button><br>
+            <div id='offenselist'>
+                {% for upgrade in offenselist %}
+                    <div class="card" id="{{ upgrade.pk }}"><img src="{{ upgrade.card_img.url }}"/></div>
+                {% endfor %}
+            </div>
+            <button type='button' onclick='showHideOfficer()'>Officer Upgrades</button><br>
+            <div id='officerlist'>
+                {% for upgrade in officerlist %}
+                    <div class="card" id="{{ upgrade.pk }}"><img src="{{ upgrade.card_img.url }}"/></div>
+                {% endfor %}
+            </div>
+            <button type='button' onclick='showHideOrdnance()'>Ordnance Upgrades</button><br>
+            <div id='ordnancelist'>
+                {% for upgrade in ordnancelist %}
+                    <div class="card" id="{{ upgrade.pk }}"><img src="{{ upgrade.card_img.url }}"/></div>
+                {% endfor %}
+            </div>
+            <button type='button' onclick='showHideSupport()'>Support Team Upgrades</button><br>
+            <div id='supportlist'>
+                {% for upgrade in supportlist %}
+                    <div class="card" id="{{ upgrade.pk }}"><img src="{{ upgrade.card_img.url }}"/></div>
+                {% endfor %}
+            </div>
+            <button type='button' onclick='showHideTitle()'>Title Upgrades</button><br>
+            <div id='titlelist'>
+                {% for upgrade in titlelist %}
+                    <div class="card" id="{{ upgrade.pk }}"><img src="{{ upgrade.card_img.url }}"/></div>
+                {% endfor %}
+            </div>
+            <button type='button' onclick='showHideTurbo()'>Turbolaser Upgrades</button><br>
+            <div id='turbolist'>
+                {% for upgrade in turbolist %}
+                    <div class="card" id="{{ upgrade.pk }}"><img src="{{ upgrade.card_img.url }}"/></div>
+                {% endfor %}
+            </div>
+            <button type='button' onclick='showHideWeaponsTeam()'>Weapons Team Upgrades</button><br>
+            <div id='weapteamlist'>
+                {% for upgrade in weapteamlist %}
+                    <div class="card" id="{{ upgrade.pk }}"><img src="{{ upgrade.card_img.url }}"/></div>
+                {% endfor %}
+            </div>
+            <button type='button' onclick='showHideBoarding()'>Boarding Team Upgrades</button><br>
+            <div id='boardlist'>
+                {% for upgrade in boardlist %}
+                    <div class="card" id="{{ upgrade.pk }}"><img src="{{ upgrade.card_img.url }}"/></div>
+                {% endfor %}
+            </div>
+        </div>
+        <button type='button' onclick='showHideSquadrons()'>Add Squadrons</button><br>
+        <div id='squadlist'>
+            {% for squad in squadslist %}
+                <div class="card" id="{{ squad.pk }}"><img src="{{ squad.card_img.url }}"/></div>
+            {% endfor %}
+        </div>
+        <button type='button' onclick='showHideObjectives()'>Add Objectives</button><br>
+        <div id='objctlist'>
+            {% for objective in objectiveslist %}
+                <div class="card" id="{{ objective.pk }}"><img src="{{ objective.card_img.url }}"/></div>
+            {% endfor %}
+        </div>
+        <a href="{% url 'dd_detail' thisfleet.pk %}"><button>Back to Fleet</button></a>
+    </div>
+{% endblock content %}
+{% block javascript %}
+{% load static %}
+    <script>
+        let this_fleet = {{ thisfleet.pk }};
+    </script>
+    <script src="{% static 'script/javascript.js' %}"></script>
+{% endblock javascript %}

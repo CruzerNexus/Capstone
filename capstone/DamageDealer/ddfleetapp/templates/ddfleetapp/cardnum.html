@@ -1,0 +1,10 @@
+{% extends 'ddfleetapp/base.html' %}
+
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <img src='{{ object.card.card_img.url }}'/>{{ form.as_p }}
+        <input type="submit" value="Update"></input>
+    </form>
+    <a href="{% url 'dd_detail' object.fleet.id %}"><button>Back</button></a>
+{% endblock content %}

@@ -1,0 +1,10 @@
+{% extends 'ddfleetapp/base.html' %}
+
+{% block content %}
+    <h1>Edit Fleet</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Update"></input>
+    </form>
+{% endblock content %}

@@ -1,0 +1,39 @@
+{% load static %}
+<html lang='en'>
+  <head>
+    <meta charset="UTF-8">
+    <title>Damage-Dealer Fleet Builder</title>
+    <meta name="description" content="A premium Fleet Building app for the Star Wars: Armada miniatures game by Fantasy Flight Games.">
+    <meta name="author" content='Commander Greg "Cruzer" Cruz'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/print.css' %}">
+    <link rel="icon" type="image/jpeg" href="{% static 'images/miniDmg.jpg' %}">
+  </head>
+  <body>
+    <a href="{% url 'home' %}"><h1>Damage-Dealer Fleet Builder</h1></a>
+    <h2>{{ fleet.list_name }}</h2>
+    <h3>Commanding Officer: {{ fleet.admiral_name }}</h3>
+    <h5>Faction: {{ fleet.faction }}<br>
+    Fleet points: {{ fleet.get_point_total }}<br>
+    Fleet "Damage-Dealer" Rating: {{ fleet.get_dd_total }} average damage per turn.</h5>
+    <h3>Fleet Roster <br></h3>
+    <h5>||Ships||</h5>
+    {% for c in card_ship %}
+        <p>Ship type: {{ c.card.name }} || Point Value: {{ c.card.point_value }} || Card Amount: {{ c.amount }}</p>
+    {% endfor %}
+    <h5>||Squadrons||</h5>
+    {% for c in card_squadron %}
+        <p>Squadron: {{ c.card.name }} || Point Value: {{ c.card.point_value }} || Card Amount: {{ c.amount }}</p>
+    {% endfor %}
+    <h5>||Upgrades||</h5>
+    {% for c in card_upgrade %}
+        <p>Upgrade: {{ c.card.name }} || Point Value: {{ c.card.point_value }} || Card Amount: {{ c.amount }}</p>
+    {% endfor %}
+    <h5>||Objective||</h5>
+    {% for c in card_objective %}
+        <p>Objective: {{ c.card.name }} || Objective Type: {{ c.card.objective_type }}</p>
+    {% endfor %}<br>
+    <a href="{% url "dd_detail" fleet.pk %}"><button>Back to Fleet</button></a>
+  </body>
+</html>

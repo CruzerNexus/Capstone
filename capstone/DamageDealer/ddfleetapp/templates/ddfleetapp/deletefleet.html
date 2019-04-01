@@ -1,0 +1,10 @@
+{% extends 'ddfleetapp/base.html' %}
+
+{% block content %}
+  <h2>Delete Fleet</h2>
+  <form action="" method="post">
+    {% csrf_token %}
+    <p>Are you sure you want to delete "{{ fleet.list_name }}"?</p>
+    <input type="submit" value="Confirm">
+  </form>
+{% endblock content %}

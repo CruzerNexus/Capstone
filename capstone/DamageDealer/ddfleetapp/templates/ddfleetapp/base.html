@@ -1,0 +1,48 @@
+{% load static %}
+<html lang='en'>
+  <head>
+    <meta charset="UTF-8">
+    <title>Damage-Dealer Fleet Builder</title>
+    <meta name="description" content="A premium Fleet Building app for the Star Wars: Armada miniatures game by Fantasy Flight Games.">
+    <meta name="author" content='Commander Greg "Cruzer" Cruz'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/skeleton.css' %}">
+    <link rel="icon" type="image/jpeg" href="{% static 'images/miniDmg.jpg' %}">
+  </head>
+  <body>
+    <section class="topbar">
+      <div class="container">
+        <div class="two columns">
+          <a href="{% url 'home' %}"><img src="{% static 'images/dmgdlr.png' %}" alt="Damage-Dealer"/>
+          <p>An App by Cruzertech</p></a>
+        </div>
+        <div class="ten columns">
+          <a href=""><button>Login/Signup</button></a>
+          <a href="{% url 'dd_list'%}"><button>Created Lists</button></a>
+          <a href=""><button>Card Database</button></a>
+          <a href=""><button>Donate</button></a>
+        </div>
+        <div class="ten columns">
+          <img src="{% static 'images/rebelSymbol.svg' %}" height='200px' width='200px'/>
+          <img src="{% static 'images/imperialSymbol.svg' %}" height='200px' width='200px'/>
+        </div>
+      </div>
+    </section>
+    <section class="main">
+      <div class="container">
+      {% block content %}
+      {% endblock content %}
+      {% block javascript %}
+      {% endblock javascript %}
+      </div>
+    </section>
+    <section class="footer">
+      <div class='container'>
+        <p>Damage-Dealer Fleet Builder App &copy; <a href='https://github.com/CruzerNexus/Capstone'>Commander Cruzer</a></p> 
+        <p>Card images &copy; <a href='https://www.fantasyflightgames.com/en/products/star-wars-armada/'>Fantasyflight Games</a></p> 
+        <p>Damage-Dealer Icon created by <a href='https://www.deviantart.com/angsthewicked'>AngsTheWicked</a></p>
+      </div>
+    </section>
+  </body>
+</html>
